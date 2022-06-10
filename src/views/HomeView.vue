@@ -28,21 +28,23 @@
 
     <!-- Movies List -->
     <div class="movies-list">
+
       <div class="movie" v-for="movie in movies" :key="movie.imdbID">
 
         <router-link :to="'/movie/' + movie.imdbID" class="movie-link" > 
           <!-- Poster -->
           <div class="product-image">
             <img  :src="movie.Poster" alt="Movie Poster" />
+            <!-- Type -->
+            <h3 class="type">{{ movie.Type}}</h3>
           </div>  
-          <!-- Type -->
-          <h3 class="type">{{ movie.Type}}</h3>
+          
           <!-- Movie Details -->
           <div class="detail">
             <!-- Year -->
             <p class="year">{{ movie.Year }}</p>
             <!-- Title -->
-          <h3 class="product-title">{{ movie.Title}}</h3>
+            <h3 class="product-title">{{ movie.Title}}</h3>
           </div>
           
         </router-link>
@@ -125,60 +127,117 @@ export default {
       }
     }
   }
-}
 
-.search-box {
+  .search-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 16px;
 
-  input {
-    display: block;
-    appearance: none;
-    outline: none;
-    border: none;
-    background: none;
+    input {
+      display: block;
+      appearance: none;
+      outline: none;
+      border: none;
+      background: none;
 
-    &[type="text"] {
-      width: 100%;
-      color: #FFF;
-      background-color: #496583;
-      padding: 10px 16px;
-      text-align: center;
-      font-size: 20px;
-      border-radius: 8px;
-      margin-bottom: 15px;
-      transition: 1.4s;
+      &[type="text"] {
+        width: 100%;
+        color: #FFF;
+        background-color: #496583;
+        padding: 10px 16px;
+        text-align: center;
+        font-size: 20px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        transition: 1.4s;
 
-      &::placeholder {
-        color: #f3f3f3;
+        &::placeholder {
+          color: #f3f3f3;
+        }
+        &:focus {
+          box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+        }
       }
-      &:focus {
-        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+
+      &[type="submit"] {
+        width: 100%;
+        max-width: 300px;
+        // vue green
+        background-color: #42b883;
+        padding: 16px;
+        border-radius: 8px;
+        font-size: 20px;
+        color: #FFF;
+        text-transform: uppercase;
+        transition: 0,4s;
+
+        &:active {
+          background-color: #3b8070;
+        }
       }
-    }
-
-    &[type="submit"] {
-      width: 100%;
-      max-width: 300px;
-      // vue green
-      background-color: #42b883;
-      padding: 16px;
-      border-radius: 8px;
-      font-size: 20px;
-      color: #FFF;
-      text-transform: uppercase;
-      transition: 0,4s;
-
-      &:active {
-        background-color: #3b8070;
-      }
-    }
-
+    }  
   }
-  
-}
 
+  .movies-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px 8px;
+
+    .movie {
+      max-width: 50%;
+      flex: 1 1 50%;
+      padding: 16px 8px;
+
+      .movie-link {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        .product-image {
+          position: relative;
+          display: block;
+
+          img {
+            display: block;
+            width: 100%;
+            height: 275px;
+            object-fit: cover;
+          }
+
+          .type {
+            position: absolute;
+            padding: 8px 16px;
+            background-color: #42b883;
+            color: #FFF;
+            bottom: 16px;
+            left: 0px;
+            text-transform: capitalize;
+          }
+        }
+
+        .detail {
+          background-color: #496583;
+          padding: 16px 8px;
+          flex: 1 1 100%;
+          border-radius: 0px 0px 8px 8px;
+
+          .year {
+            color: #aaa;
+            font-size: 14px;
+          }
+
+          .product-title {
+            color: #FFF;
+            font-weight: 600;
+            font-size: 18px;
+          }
+
+        }
+
+      }     
+    }
+  }
+}
 </style>
