@@ -96,6 +96,8 @@ export default {
 .home {
   .feature-card {
     position: relative;
+    max-width: 900px;
+    margin: 0 auto;
 
     .featured-img {
       display: block;
@@ -129,6 +131,8 @@ export default {
   }
 
   .search-box {
+  max-width: 900px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -182,6 +186,8 @@ export default {
 
   .movies-list {
     display: flex;
+    align-items: center;
+    justify-content:space-around;
     flex-wrap: wrap;
     margin: 0px 8px;
 
@@ -189,6 +195,13 @@ export default {
       max-width: 50%;
       flex: 1 1 50%;
       padding: 16px 8px;
+      @media (min-width: 960px) {
+        
+        max-width: 30%;
+        flex: 1 1 30%;
+        padding: 16px 8px;
+    
+      }
 
       .movie-link {
         display: flex;
@@ -239,5 +252,8 @@ export default {
       }     
     }
   }
+  
 }
+
+
 </style>

@@ -39,6 +39,8 @@ export default {
 <style lang="scss">
 .movie-detail {
     padding: 16px;
+    max-width: 900px;
+    margin: 0 auto;   
     
     h2 {
         color: #FFF;
